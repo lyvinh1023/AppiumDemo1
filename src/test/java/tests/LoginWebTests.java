@@ -5,6 +5,7 @@ import static org.testng.Assert.assertTrue;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -34,7 +35,7 @@ public class LoginWebTests {
 
 			URL url = new URL("http://127.0.0.1:4723/wd/hub");
 			driver = new AppiumDriver<MobileElement>(url, caps);
-
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		} catch (MalformedURLException e) {
 			System.out.println("Cause is: " + e.getCause());
 			System.out.println("Error is: " + e.getMessage());
